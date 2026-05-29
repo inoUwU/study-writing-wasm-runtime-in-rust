@@ -1,2 +1,6 @@
 /target
 .direnv
+*.wasm
+/target
+.direnv
+*.wasm
