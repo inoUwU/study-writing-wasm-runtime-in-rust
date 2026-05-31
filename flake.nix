@@ -20,10 +20,15 @@
         devShells.default = pkgs.mkShell {
           packages = [
             pkgs.rustup
-            pkgs.rust-analyzer
             pkgs.wabt
             pkgs.wasmtime
           ];
+
+          shellHook = ''
+            export RUSTUP_HOME="$PWD/.rustup"
+            export CARGO_HOME="$PWD/.cargo"
+            export PATH="$CARGO_HOME/bin:$PATH"
+          '';
         };
 
         formatter = pkgs.nixfmt-tree;
